@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tips Webpage</title>
+    </head>
+ 
+<body>
+
+<h2>Venkata Shashankar Chennu computes Tips</h2>
+
+
+
+    <label for="amount">Enter a check amount</label>
+    <input type ="number" id="amount" name="amount" value="20"> <br>
+
+    <label for="tip-increase">Enter tip increase</label>
+    <input type ="number" id="tip-increase" name="tip-increase" value="0.05"> <br>
+
+    
+
+    <input type="button" onclick="tips()" value="Find tips">
+
+
+
+<p id="result"></p>
+
+<form margin-left: 10px;>
+    <input type="radio" id="times" name="operation" value="times" onclick="chooseOp()"   >
+    <label for="times">*</label></br>
+  
+    <input type="radio" id="divide" name="operation"  onclick="chooseOp()" 
+       value="divide">
+    <label for="divide">/</label></br>
+  
+    <input type="radio" id="exponent" name="operation"  onclick="chooseOp()"   
+       value="exponent">
+    <label for="exponent">**</label></br>
+  </form>
+
+  <p id="results">select any operation</p>
+
+<script> 
+function chooseOp(){
+    var amount=(Number)(document.getElementById("amount").value)
+    var tipIncrease=(Number)(document.getElementById("tip-increase").value)
+     exponent=document.getElementById("exponent").checked
+ 
+     times=document.getElementById("times").checked
+   
+     divide=document.getElementById("divide").checked
+     
+  if(exponent)
+    document.getElementById('results').innerHTML="<b>[Amount ** TipIncrease] Value is: </b>"+amount**tipIncrease
+    else if(times)
+    document.getElementById('results').innerHTML="<b>[Amount * TipIncrease] Value is: </b>"+amount*tipIncrease
+    else if(divide)
+    document.getElementById('results').innerHTML="<b>[Amount / TipIncrease] value is: </b>"+amount/tipIncrease
+
+}
+
+function tips(){
+    var amount=(Number)(document.getElementById("amount").value)
+    var tipIncrease=(Number)(document.getElementById("tip-increase").value)
+    result="Tip amounts by increase of "+tipIncrease+" are:"
+ 
+    var sum=amount*0.1
+    result+=sum+0.0
+ 
+    for(let i=0;i<9;i++){
+     var z=sum +(amount*tipIncrease);
+     result += ", "+Math.round(z * 10) / 10
+     sum=Math.round(z * 10) / 10
+}
+document.getElementById('result').innerHTML=result;
+}
+</script>
+
+</body>
+</html> 
