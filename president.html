@@ -1,54 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> President Page</title>
+        <title>Javascript Webpage</title>
     </head>
  
 <body>
 
-<h2>“President guess by Venkata Shashankar Chennu"</h2>
-<div class = "container"></div>
+<h2>President guess by Saikiran Kumar Mandapalli</h2>
 <form>
-    <label for="form_age">Enter the secret president name </label>
-    <input type ="password" id="form_age" name="form_age" min=10 max=50 step=2 value= "George-Washington"> <br>
+    <label for="president_name">Enter the secret president name </label>
+    <input type ="password" id="president_name" name="president_name" value="George Washington"> <br>
 
-    <label for="form_nick"> Guess the president </label>
-    <input type ="text" id="form_nick" name="form_nick" autofocus> <br>
+    <label for="guessing">Guess the president </label>
+    <input type ="text" id="guessing" name="guessing"> <br>
 
     <input type="button" onclick="checkGuess()" value="Check the guess">
 </form>
-</div>
-<div class = "container">
-<p id="result">This text will be replaced </p>
-</div>
-<script> 
-let correct = 0;
-let wrong = 0;
-var cntNew = 0;
-function checkGuess ()
-{
-console.log("Getting form values")
-password = document.getElementById("form_age").value
-text = document.getElementById("form_nick").value
-//confirmed = confirm("Are these the values? "+ age +" and "+ nick)
 
-out = document.getElementById("result")
-if(password==text){
-    cntNew = 0;
-    correct = correct + 1;
-    out.innerHTML = "correct : " + correct +"wrong : " + wrong
-    alert("You got it right")  
-}    else {
-    cntNew = cntNew + 1;
-    wrong = wrong + 1;
-    out.innerHTML = "correct : " + correct + "wrong : " + wrong
-    alert("Wrong President")
-    if (cntNew >=3){
-        if (wrong >=3){
-            incorrectcheckGuess()
-        }
+
+
+<p id="result"></p>
+<div class="container">
+    <img src="Montane oriole.png"  id="my-image"width="100",height="100" onclick="swapImage()"alt="Montane oriole image">
+</div>
+
+<script> 
+    var correct=0;
+    var wrong=0;
+function checkGuess(){
+    console.log("Getting form values")
+    secret = document.getElementById("president_name").value
+    guess = document.getElementById("guessing").value
+    out = document.getElementById("result")
+    if(secret == guess){
+        correct+=1;
+        alert("You got it right")
+        out.innerHTML= correct
+    } else {
+        wrong+=1;
+        alert("Wrong President")
+        out.innerHTML= wrong
     }
-}
 }
 </script>
 <script>
@@ -59,10 +51,10 @@ if(password==text){
             case 1:document.getElementById("my-image").src ="Comorant.jpg";
             useImage++;
             break;
-            case 2:document.getElementById("my-image").src ="Hairy Woodpecker.jpg";
+            case 2:document.getElementById("my-image").src ="Hairy woodpecker.jpg";
             useImage++;
             break;
-            case 3 :document.getElementById("my-image").src ="Night Heron";
+            case 3 :document.getElementById("my-image").src ="Night Heron.jpg";
             useImage=1;
             break;
 
@@ -70,7 +62,4 @@ if(password==text){
     }
 </script>
 </body>
-</html> 
-
-</body>
-</html> 
+</html>
