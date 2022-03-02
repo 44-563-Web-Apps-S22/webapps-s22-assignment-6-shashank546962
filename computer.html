@@ -46,14 +46,14 @@
 <p id="result"></p>
 
 <script> 
-var my_computer={}
+var my_system={}
 
 function updateComputer(){
-   var a=document.getElementById("propertyname").value
-   var b=document.getElementById("propertyvalue").value
-    my_computer[a]=b
-    document.getElementById("result").innerHTML=a+":"+b+" <b>Successfully added</b>"
-    console.log(my_computer)
+   var x=document.getElementById("propertyname").value
+   var y=document.getElementById("propertyvalue").value
+    my_system[x]=y
+    document.getElementById("result").innerHTML=x+":"+y+" <b>Successfully added</b>"
+    console.log(my_system)
 }
 
 function orderComputer(){
@@ -64,24 +64,24 @@ function orderComputer(){
 
 
     if(extra){
-        my_computer["extra"]=true
+        my_system["extra"]=true
     }else{
-        my_computer["extra"]=false
+        my_system["extra"]=false
     }
 
     if(mouse){
-        my_computer["Mouse"]=true
+        my_system["Mouse"]=true
     }else{
-        my_computer["Mouse"]=false
+        my_system["Mouse"]=false
     }
 
     if(cell){
-        my_computer["cell"]=true
+        my_system["cell"]=true
     }else{
-        my_computer["cell"]=false
+        my_system["cell"]=false
     }
 
-    document.getElementById("results").innerHTML="<b>Extra Money:</b>"+my_computer.extra+", <b>Mouse:</b>"+my_computer.Mouse+", <b>Cell Service:</b>"+my_computer.cell
+    document.getElementById("results").innerHTML="<b>Extra Money:</b>"+my_system.extra+", <b>Mouse:</b>"+my_system.Mouse+", <b>Cell Service:</b>"+my_system.cell
 }
 
 
