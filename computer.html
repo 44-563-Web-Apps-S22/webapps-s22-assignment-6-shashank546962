@@ -1,104 +1,86 @@
-<!DOCTYPE html>
+[6:10 pm, 02/03/2022] Sasank NWM: <!DOCTYPE html>
 <html>
- <head><title>Computer Order Webpage</title>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
-   integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" 
-   integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-</head>
-
-
-<h2>venkata Shashankar Chennu Orders a Computer</h2>
-<form style="background-color: beige;">
-    <input type="checkbox" id="extraMemory" name="extraMemory"   
-      value="extra" checked>
-    <label for="extraMoney">Extra memory</label></br>
-  
-    <input type="checkbox" id="Mouse" name="Mouse" 
-       value="mouse" checked>
-    <label for="Mouse">Mouse</label></br>
-  
-    <input type="checkbox" id="cellService" name="cellService"   
-       value="cell" checked>
-    <label for="cellService">Cell service</label></br>
-
-    <input type="button" onclick="orderComputer()" value="Order a Computer" style="background-color: green;">
-  </form>
-
-
-<p id="results"></p>
-<hr>
-<form>
-    <label for="propertyname">Enter a property name </label>
-    <input type ="text" id="propertyname" name="propertyname" min=10 max=50 step=2 value="engraved"> <br><br>
-
-    <label for="propertyvalue">Enter a value</label>
-    <input type ="text" id="propertyvalue" name="propertyvalue" autofocus > <br> <br>
-
-    <input type="button" onclick="updateComputer()" value="Update the computer" style="background-color: green;">
-</form>
-
-
-<p id="result"></p>
-
-<script> 
-var my_system={}
-
-function updateComputer(){
-   var x=document.getElementById("propertyname").value
-   var y=document.getElementById("propertyvalue").value
-    my_system[x]=y
-    document.getElementById("result").innerHTML=x+":"+y+" <b>Successfully added</b>"
-    console.log(my_system)
-}
-
-function orderComputer(){
-
-    extra = document.getElementById("extraMemory").checked
-    mouse = document.getElementById("Mouse").checked
-    cell = document.getElementById("cellService").checked
-
-
-    if(extra){
-        my_system["extra"]=true
-    }else{
-        my_system["extra"]=false
-    }
-
-    if(mouse){
-        my_system["Mouse"]=true
-    }else{
-        my_system["Mouse"]=false
-    }
-
-    if(cell){
-        my_system["cell"]=true
-    }else{
-        my_system["cell"]=false
-    }
-
-    document.getElementById("results").innerHTML="<b>Extra Money:</b>"+my_system.extra+", <b>Mouse:</b>"+my_system.Mouse+", <b>Cell Service:</b>"+my_system.cell
-}
-
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+ 
+    <head>
+        <title>Computer page</title>
+    </head>
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
-
-</body>
+    <body>
+    
+        <h2>Venkata Shashankar Chennu orders a computer</h2>
+    
+        <form>
+            <input type="checkbox" id="check_1" name="check_1" value="extra">
+            <label for="check_1">Extra memory</label></br>
+    
+            <input type="checkbox" id="check_2" name="check_2" value="mouse">
+            <label for="check_2">Mouse</label></br>
+    
+            <input type="checkbox" id="check_3" name="check_3" value="cell">
+            <label for="check_3">Cell service</label></br>
+    
+            <input type="button" onclick="orderComputer()" value="Order a computer">
+        </form>
+    
+        <form>
+            <br>
+            <input type="text" id="prop" name="prop" value="engraved">
+            <label for="prop">Enter a property name</label></br>
+            
+    
+            <input type="text" id="prop_value" name="prop_value">
+            <label for="prop_value">Enter a value</label></br>
+            <br>
+            <input type="button" value="Update the computer" onclick="updateComputer()">
+        </form>
+    
+    
+        <p id="result">This text will be replaced </p>
+    
+        <script>
+            var my_computer = {}
+            out = document.getElementById("result")
+    
+            function orderComputer() {
+                var my_computer = {}
+                console.log("Getting form values")
+                extra = document.getElementById("check_1").checked
+                mouse = document.getElementById("check_2").checked
+                cell = document.getElementById("check_3").checked
+    
+                
+                if (extra) {
+                    my_computer.extra = true
+                }else{
+                    my_computer.extra = false
+                }
+                if (mouse) {
+                    my_computer.mouse = true
+                }
+                else
+                {
+                    my_computer.mouse = false
+                }
+                if (cell) {
+                    my_computer.cell = true
+                }
+                else
+                {
+                    my_computer.cell=false
+                }
+                document.getElementById("result").innerHTML = "extra: " + my_computer.extra + " mouse: " + my_computer.mouse + " cell: " + my_computer.cell
+            }
+      
+            function updateComputer()
+       {
+           var property= document.getElementById("prop").value
+           var property_value= document.getElementById("prop_value").value
+           my_computer[property]=property_value
+           out.innerHTML = "my_Computer[]=  " + JSON.stringify(my_computer);
+           
+       }
+            
+        </script>
+    
+    </body>
 </html>
